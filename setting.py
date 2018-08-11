@@ -22,9 +22,10 @@ REDIS_PASSWORD = '123456'
 
 # 调度配置
 IP_MAX_NUM = 100
-IP_MIN_NUM = 20
-TEST_URL = 'http://icanhazip.com/'
+IP_MIN_NUM = 20  # 代理最小
+TEST_URL = 'http://icanhazip.com/'  # 代理测试Url
 
-DIE_TIME = 120
-POOL_TIME = 10
-TIME_OUT = 5
+# 时间配置
+DIE_TIME = 120  # 杀掉一半代理间隔时间
+POOL_TIME = 10  # 爬虫爬取代理间隔时间
+TIME_OUT = 5   # 代理测试超时等待时间
