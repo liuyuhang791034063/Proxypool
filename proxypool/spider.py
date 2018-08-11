@@ -59,7 +59,7 @@ class SpiderManager(object, metaclass=SpiderMetaclass):
             yield '{0}:{1}'.format(ip, port)
 
     def spider_kuaidaili(self):
-        for i in range(1, 5):
+        for i in range(1, 4):
             start_url = 'https://www.kuaidaili.com/free/inha/{}/'.format(i)
             soup = BeautifulSoup(get_html(start_url), 'lxml')
             ips = soup.find_all('td', attrs={'data-title': 'IP'})

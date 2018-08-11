@@ -19,6 +19,6 @@ if __name__ == '__main__':
     # 开始
     run.start()
     # 获取代理
-    run.get_proxy()
-    # 获取代理总数
-    run.get_proxies_count()
+    # run.get_proxy()
+    # # 获取代理总数
+    # run.get_proxies_count()

@@ -37,7 +37,10 @@ class GetIp(object):
         :return:
         """
         check_sp_num = random.choice(range(self._sp.__SpiderCount__))
-        proxies = self._sp.get_proxies(self._sp.__SpiderFunc__[check_sp_num])
+        try:
+            proxies = self._sp.get_proxies(self._sp.__SpiderFunc__[check_sp_num])
+        except TypeError:
+            pass
         loop = asyncio.get_event_loop()
         tasks = [self._cp.check_http_proxy(proxy) for proxy in proxies]
         loop.run_until_complete(asyncio.wait(tasks))
@@ -133,12 +136,13 @@ class Schedule(object):
     def kill_http_ip():
         sc = Schedule()
         while True:
+            time.sleep(DIE_TIME)
             print("**********Start to kill http proxies**********")
             old_proxies = sc._db.get(int(sc._db.count*0.5))
             for old_proxy in old_proxies:
                 print(old_proxy, "is be killed")
             print("**********End to kill http proxies**********")
-            time.sleep(DIE_TIME)
+
 
     # @staticmethod
     # def die_ip2():
