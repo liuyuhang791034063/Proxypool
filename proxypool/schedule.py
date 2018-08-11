@@ -40,6 +40,7 @@ class GetIp(object):
         try:
             proxies = self._sp.get_proxies(self._sp.__SpiderFunc__[check_sp_num])
         except TypeError:
+            proxies = []
             pass
         loop = asyncio.get_event_loop()
         tasks = [self._cp.check_http_proxy(proxy) for proxy in proxies]
@@ -140,7 +141,7 @@ class Schedule(object):
             print("**********Start to kill http proxies**********")
             old_proxies = sc._db.get(int(sc._db.count*0.5))
             for old_proxy in old_proxies:
-                print(old_proxy, "is be killed")
+                print(old_proxy.decode('utf-8'), "is be killed")
             print("**********End to kill http proxies**********")
 
 
