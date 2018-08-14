@@ -80,6 +80,8 @@ class CheckIp(object):
                         if response.status == 200:
                             self._db.put(proxy)
                             print('Valid http proxy', proxy)
+                        if response.status == 503:
+                            pass
                         else:
                             print(response)
                 except (ClientProxyConnectionError, TimeoutError, ValueError):
