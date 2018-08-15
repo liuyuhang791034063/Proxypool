@@ -145,7 +145,7 @@ class Schedule(object):
             for old_proxy in old_proxies:
                 print(old_proxy.decode('utf-8'), "is be killed")
             print("**********End to kill http proxies**********")
-
+            print('**********Now have {} proxies**********'.format(sc._db.count))
 
     # @staticmethod
     # def die_ip2():
